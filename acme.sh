@@ -5557,12 +5557,16 @@ renew() {
 
   case "$Le_API" in
   "$CA_LETSENCRYPT_V2_TEST")
-    _info "Switching back to $CA_LETSENCRYPT_V2"
-    Le_API="$CA_LETSENCRYPT_V2"
+    if [ ! "$STAGE" ]; then
+      _info "Switching back to $CA_LETSENCRYPT_V2"
+      Le_API="$CA_LETSENCRYPT_V2"
+    fi
     ;;
   "$CA_GOOGLE_TEST")
-    _info "Switching back to $CA_GOOGLE"
-    Le_API="$CA_GOOGLE"
+    if [ ! "$STAGE" ]; then
+      _info "Switching back to $CA_GOOGLE"
+      Le_API="$CA_GOOGLE"
+    fi
     ;;
   esac
 
