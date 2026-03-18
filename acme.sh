@@ -5571,7 +5571,9 @@ renew() {
   esac
 
   if [ "$_server" ]; then
-    Le_API="$_server"
+    if [ ! "$STAGE" ]; then
+      Le_API="$_server"
+    fi
   fi
   _info "Renewing using Le_API=$Le_API"
 
