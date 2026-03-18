@@ -251,7 +251,7 @@ jobs:
           fi
           cd ../acmetest
           ./letest.sh
-    - name: onError
+    - name: DebugOnError
       if: ${{ failure() }}
       run: |
         echo "See how to debug in VM:"
@@ -306,7 +306,7 @@ jobs:
           fi
           cd ../acmetest
           ./letest.sh
-    - name: onError
+    - name: DebugOnError
       if: ${{ failure() }}
       run: |
         echo "See how to debug in VM:"
@@ -362,7 +362,7 @@ jobs:
           fi
           cd ../acmetest
           ./letest.sh
-    - name: onError
+    - name: DebugOnError
       if: ${{ failure() }}
       run: |
         echo "See how to debug in VM:"
@@ -397,7 +397,8 @@ jobs:
       with:
         envs: 'TEST_DNS TestingDomain TEST_DNS_NO_WILDCARD TEST_DNS_NO_SUBDOMAIN TEST_DNS_SLEEP CASE TEST_LOCAL DEBUG http_proxy https_proxy TokenName1 TokenName2 TokenName3 TokenName4 TokenName5 ${{ secrets.TokenName1}} ${{ secrets.TokenName2}} ${{ secrets.TokenName3}} ${{ secrets.TokenName4}} ${{ secrets.TokenName5}}'
         prepare: |
-          pkg install -y curl socat libnghttp2
+          pkg install -y libnghttp2
+          pkg install -y curl socat
         usesh: true
         sync: nfs
         run: |
@@ -418,7 +419,7 @@ jobs:
           fi
           cd ../acmetest
           ./letest.sh
-    - name: onError
+    - name: DebugOnError
       if: ${{ failure() }}
       run: |
         echo "See how to debug in VM:"
@@ -480,7 +481,7 @@ jobs:
           fi
           cd ../acmetest
           ./letest.sh
-    - name: onError
+    - name: DebugOnError
       if: ${{ failure() }}
       run: |
         echo "See how to debug in VM:"
@@ -534,7 +535,7 @@ jobs:
           fi
           cd ../acmetest
           ./letest.sh
-    - name: onError
+    - name: DebugOnError
       if: ${{ failure() }}
       run: |
         echo "See how to debug in VM:"
@@ -589,7 +590,7 @@ jobs:
           fi
           cd ../acmetest
           ./letest.sh
-    - name: onError
+    - name: DebugOnError
       if: ${{ failure() }}
       run: |
         echo "See how to debug in VM:"
@@ -648,7 +649,7 @@ jobs:
           fi
           cd ../acmetest
           ./letest.sh
-    - name: onError
+    - name: DebugOnError
       if: ${{ failure() }}
       run: |
         echo "See how to debug in VM:"
